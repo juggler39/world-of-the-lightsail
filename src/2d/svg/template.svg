@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+
+
+    <!--
+        Defs
+    -->
+
+    <defs>
+
+
+        <!-- gradients -->
+
+        <linearGradient id="g0" x1="0" y1="0" x2="100%" y2="100%" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FFFFFF" offset="0%"/>
+            <stop stop-color="#0A69D2" offset="100%"/>
+        </linearGradient>
+
+        <linearGradient id="g1" x1="0" y1="0" x2="100%" y2="100%" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#4DA8FF" offset="15%"/>
+            <stop stop-color="#FFE600" offset="70%"/>
+            <stop stop-color="#FF9900" offset="100%"/>
+        </linearGradient>
+
+        <linearGradient id="g2" x1="0" y1="0" x2="100%" y2="100%" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#F305BC" offset="5%"/>
+            <stop stop-color="#DCE742" offset="35%"/>
+            <stop stop-color="#16B9ED" offset="100%"/>
+        </linearGradient>
+
+        <linearGradient id="g3" x1="0" y1="0" x2="100%" y2="0" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="20%"/>
+            <stop stop-color="#0A69D2" offset="50%"/>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="80%"/>
+        </linearGradient>
+
+
+        <!-- clip & mask -->
+
+        <% orbits.forEach((orbit, index) => { %>
+            <mask id="m<%= index %>">
+                <rect class="rect-out-<%= index %>" fill="#FFF"/>
+                <rect class="rect-in-<%= index %>" fill="#000"/>
+            </mask>
+            <clipPath id="c<%= index %>">
+                <rect class="rect-in-<%= index %>" />
+            </clipPath>
+        <% }) %>
+
+
+    </defs>
+
+
+
+    <!--
+        Lines
+    -->
+
+    <% orbits.forEach((orbit, index) => { %>
+        <g>
+            <line class="mm-line" stroke-dasharray="12 6" />
+            <line class="mm-line" stroke-dasharray="12 6" />
+            <line class="mm-line" stroke-dasharray="12 6" />
+            <line class="mm-line" stroke-dasharray="12 6" />
+        </g>
+    <% }) %>
+
+
+
+    <!--
+        Border 3
+    -->
+
+    <% orbits.forEach((orbit, index) => { %>
+        <rect class="mm-border mm-border--bg rect-in-<%= index %>" />
+        <g id="b<%= index %>" stroke="url(#g<%= index %>)">
+            <rect class="mm-border rect-in-<%= index %>" />
+            <g mask="url(#m<%= index %>)">
+                <% orbit.planets.forEach(planet => { %>
+                    <circle class="mm-lg mm-border circle-out-<%= index %>"/>
+                <% }) %>
+            </g>
+            <g clip-path="url(#c<%= index %>)">
+                <% orbit.planets.forEach(planet => { %>
+                    <circle class="mm-lg mm-border circle-in-<%= index %>"/>
+                <% }) %>
+            </g>
+        </g>
+    <% }) %>
+
+
+</svg>

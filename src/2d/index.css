@@ -1,0 +1,43 @@
+.lw {
+    position: relative;
+    --radius: 0;
+}
+.lw-svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.lw-items {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.lw-planet {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: calc(var(--radius) * 2);
+    height: calc(var(--radius) * 2);
+    margin-left: calc(var(--radius) * -1);
+    margin-top: calc(var(--radius) * -1);
+    border-radius: 50%;
+    background: #D8D8D8;
+    /*opacity: 0;*/
+
+}
+
+/*
+    Borders
+*/
+
+.mm-border {
+    fill: none;
+    /*stroke-width: 10;*/
+}
+.mm-border--bg {
+    stroke: #FAFAFA;
+}

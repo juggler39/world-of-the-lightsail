@@ -1,0 +1,162 @@
+/*
+    Stars
+*/
+
+.stars {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+/*
+    Controls
+*/
+
+.controls {
+    position: absolute;
+    left: 2em;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.controls a {
+    margin: .5em 0;
+    color: #FFFFFF;
+    background: #0A69D2;
+}
+@media (max-width: 728px) {
+    .controls { display: none }
+}
+
+
+
+/*
+    Nav
+*/
+
+nav {
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    padding: 0 2em 2em 2em;
+}
+nav .u-btn {
+    margin: .5em .25em 0 .25em;
+    color: #0A69D2;
+    background: #FFFFFF;
+    border: 1px solid #D5E1E4;
+}
+nav .u-btn.active {
+    color: #FFFFFF;
+    background: #0A69D2;
+}
+@media (max-width: 728px) {
+    nav {
+        padding: 0 0.5em;
+        bottom: 0.5em;
+    }
+    nav .u-btn {
+        height: 1.8em;
+        line-height: 1.8em;
+        padding: 0 0.5em
+    }
+}
+
+
+
+/*
+    System
+*/
+
+.ps-system {
+    position: relative;
+}
+
+.ps-scene {
+    position: relative;
+    transform-origin: 0 0;
+    user-select: none;
+}
+.ps-canvas {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding-top: 100%;
+    transform-style: preserve-3d;
+}
+.ps-canvas > * {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+
+/* rings */
+
+.ps-canvas--orbits .ps-orbit {
+    pointer-events: none;
+}
+
+
+
+.ps-canvas--orbits .ps-orbit {
+    border: 2px dashed #CAE1FE;
+}
+.ps-item {
+    border-radius: 50%;
+    text-align: center;
+}
+.ps-item .ps-image {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 100%;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+.ps-item p {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #D2E5FF;
+    color: #000;
+    border: 1px solid #FFFFFF;
+    border-radius: 2px;
+    text-align: center;
+    margin-top: 3px;
+    font-size: 8px;
+    padding: 3px;
+    transition: color .3s, background .3s, border-color .3s;
+}
+.ps-item.active p,
+.ps-item:hover p {
+    background: #0A69D2;
+    color: #FFFFFF;
+    border-color: #9FC5F1
+}
+.ps-moon {
+    z-index: 1;
+}
+.ps-sun p {
+    transition: opacity .3s;
+    white-space: nowrap;
+}
+.ps-sun:not(.active) p {
+    opacity: 0;
+}
+.ps-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    transform: translate(-50%, -50%);
+}
