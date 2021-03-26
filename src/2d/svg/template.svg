@@ -46,7 +46,6 @@
             </clipPath>
         <% }) %>
 
-
     </defs>
 
 
@@ -56,7 +55,7 @@
     -->
 
     <% orbits.forEach((orbit, index) => { %>
-        <g>
+        <g id="lines-<%= index %>">
             <line class="mm-line" stroke-dasharray="12 6" />
             <line class="mm-line" stroke-dasharray="12 6" />
             <line class="mm-line" stroke-dasharray="12 6" />

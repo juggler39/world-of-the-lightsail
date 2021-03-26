@@ -1,6 +1,6 @@
 import Planet from './planet'
 import Border from '../svg/border'
-import svgLines from '../svg/lines'
+import Lines from '../svg/lines'
 
 export default class Orbit {
 
@@ -22,7 +22,7 @@ export default class Orbit {
 
         this.planets = this.planets.map((options, index) => new Planet(options, index, this));
         this.border = new Border(this);
-        this.lines = svgLines(this);
+        this.lines = new Lines(this);
         
     }
 

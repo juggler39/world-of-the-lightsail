@@ -43,8 +43,9 @@ export default class World {
         this.scene = new Scene(this);
         this.sun = new Sun(this);
 
-        this.orbits = options.orbits.map((options, index) => {
-            return new Orbit(options, index, this);
+        this.orbits = [];
+        options.orbits.forEach((options, index) => {
+            this.orbits[index] = new Orbit(options, index, this);
         });
 
     }
