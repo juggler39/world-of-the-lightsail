@@ -68,7 +68,7 @@ export default class Planet {
 
         if (options.video) {
             this.video = options.video;
-            this.$video = Utils.createImage(options.system.options.video.image3d, 'ps-video');
+            this.$video = Utils.createImage(options.system.options.video.image3d, 'ps-video u-pulse');
             this.$node.appendChild(this.$video);
             this.$video.addEventListener('click', event => {
                 this.system.emit('video', this);

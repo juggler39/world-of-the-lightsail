@@ -1,8 +1,12 @@
 const DATA = {
-    
+
+    head: {
+        video: 'https://player.vimeo.com/video/527579580'
+    },
+
     sun: {
         image3d: 'images/3d/sun.svg',
-        image2d: 'images/2d/sun.svg',
+        image2d: 'images/2d/sun.png',
         video: 'https://player.vimeo.com/video/525213904'
     },
 
@@ -211,7 +215,7 @@ const DATA = {
                         {
                             image3d: 'images/3d/m1.svg',
                             image2d: 'images/2d/m1.svg',
-                            label: 'Synonym/Definition Builder',
+                            label: 'Synonym / Definition Builder',
                             note: 'Synonym / Definition Builder is a full dictionary that a child can access either from directly inside the books and articles they read by clicking on any word or from anywhere on their dashboard. They can read definitions, see synonyms and parts of speech in a word tree, and see word translations and examples of the word used in sentences.'
                         },
                         {

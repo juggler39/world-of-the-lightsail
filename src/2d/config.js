@@ -1,51 +1,16 @@
-// ----------------------
-// Planets
-// ----------------------
-
-const planets = {
-    
-    scales: [
-        0.7,
-        0.6,
-        0.5
-    ],
-    
-    images: [
-        
-    ]
-    
-}
-
-
-
-// ----------------------
-// Moon
-// ----------------------
-
-const moon = {
-    
-    scale: 0.5,
-    margin: 24,
-    
-    images: [
-        
-    ]
-    
-}
-
-
-
-// ----------------------
-// Exports
-// ----------------------
+const scales = [
+    0.7,
+    0.6,
+    0.5
+]
 
 export default {
 
     border: 10,
 
     moon: {
-        scale: moon.scale,
-        margin: moon.margin
+        scale: 0.6,
+        margin: 48,
     },
 
     sun: {
@@ -53,9 +18,13 @@ export default {
         r: 120
     },
 
+    video: {
+        ...DATA.video
+    },
+
     orbits: DATA.orbits.map((orbit, index) => {
         return {
-            scale: planets.scales[index],
+            scale: scales[index],
             planets: orbit.planets
         }
     })

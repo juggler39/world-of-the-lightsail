@@ -1,7 +1,8 @@
 import template from 'lodash.template'
-import Utils from '@/utils'
+import Utils from '../helpers/utils'
 import SVG from '../svg/template.svg'
 import Orbit from './orbit'
+import Sun from './sun'
 
 export default class World {
 
@@ -13,22 +14,31 @@ export default class World {
 
     constructor ($node, options) {
 
+        this.listeners = [];
         this.options = options;
         this.size = this.getSize();
 
         this.$node = $node;
-        this.$node.classList.add('lw');
+        this.$node.classList.add('mm');
         this.$node.style.setProperty('--radius', this.options.sun.r + 'px');
+        this.$node.style.setProperty('--moon-scale', this.options.moon.scale);
 
-        this.$svg = Utils.createNode(template(SVG)(this.options))
-        this.$svg.classList.add('lw-svg');
+        this.$svg = Utils.createFromHTML(template(SVG)(this.options))
+        this.$svg.classList.add('mm-svg');
         this.$node.appendChild(this.$svg);
 
         this.$items = document.createElement('div');
-        this.$items.classList.add('lw-items');
+        this.$items.classList.add('mm-items');
         this.$node.appendChild(this.$items);
+
+        this.$overlay = document.createElement('div');
+        this.$overlay.classList.add('mm-overlay');
+        this.$items.appendChild(this.$overlay);
+        this.$overlay.addEventListener('click', () => this.emit('overlay:click', this));
         
         this.setSizes();
+
+        this.sun = new Sun(this);
 
         this.orbits = options.orbits.map((options, index) => {
             return new Orbit(options, index, this);
@@ -69,7 +79,9 @@ export default class World {
         this.offset = {};
         this.offset.x = (this.width - this.size) / this.options.orbits.length / 2;
         this.offset.y = (this.height - this.size) / this.options.orbits.length / 2;
-        this.$items.style.transform = `scale(${this.scale})`
+        this.$items.style.width = this.width + 'px';
+        this.$items.style.height = this.height + 'px';
+        this.$items.style.transform = `translate(-50%, -50%) scale(${this.scale})`
         this.$svg.setAttribute('viewBox', `0 0 ${this.width} ${this.height}`);
     }
 
@@ -77,6 +89,29 @@ export default class World {
         this.setSizes();
         this.orbits.forEach(orbit => orbit.resize());
     }
-    
+
+
+
+    // ----------------------
+    // Events
+    // ----------------------
+
+    on (event, handler) {
+        this.listeners[event] = this.listeners[event] || [];
+        this.listeners[event].push(handler);
+    }
+
+    off (event, handler) {
+        if (!this.listeners[event]) return;
+        const index = this.listeners[event].indexOf(handler);
+        if (index > -1) this.listeners[event].splice(index, 1);
+    }
+
+    emit (event, param) {
+        if (!this.listeners[event]) return;
+        this.listeners[event].forEach(handler => handler(param, this));
+    }
+
+
 
 }

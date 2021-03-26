@@ -158,5 +158,5 @@ nav .u-btn.active {
     left: 50%;
     width: 16px;
     height: 16px;
-    transform: translate(-50%, -50%);
+    margin: -8px 0 0 -8px;
 }

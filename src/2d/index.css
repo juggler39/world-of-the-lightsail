@@ -1,22 +1,36 @@
-.lw {
+/*
+    Mindmap
+*/
+
+.mm {
     position: relative;
     --radius: 0;
+    --moon-scale: 0;
 }
-.lw-svg {
+.mm-svg {
     display: block;
     width: 100%;
     height: 100%;
 }
-
-.lw-items {
+.mm-items {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+.mm-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    background: rgba(255,255,255,0.7);
 }
 
-.lw-planet {
+
+/* item */
+
+.mm-wrap,
+.mm-item {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -24,20 +38,72 @@
     height: calc(var(--radius) * 2);
     margin-left: calc(var(--radius) * -1);
     margin-top: calc(var(--radius) * -1);
+}
+.mm-item {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
     border-radius: 50%;
     background: #D8D8D8;
-    /*opacity: 0;*/
-
+}
+.mm-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.mm-label {
+    position: relative;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 32px;
+    padding: 0 16px;
+    font-weight: 900;
+}
+.mm-video {
+    position: relative;
+    width: 64px;
+    height: 64px;
+}
+.mm-sun {
+    justify-content: flex-start;
+    padding-top: 12px;
 }
 
-/*
-    Borders
-*/
+
+    /* svg */
 
 .mm-border {
     fill: none;
-    /*stroke-width: 10;*/
 }
 .mm-border--bg {
     stroke: #FAFAFA;
+}
+
+
+/* transitions */
+
+.mm-moon,
+.mm-wrap {
+    transition: transform .5s;
+}
+.mm-wrap.active {
+    z-index: 2;
+    transform: none !important;
+}
+.mm-wrap:not(.active) .mm-moon {
+    transform: scale(var(--moon-scale)) !important;
+}
+.mm-overlay {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s, visibility .5s 0s;
+}
+.mm-overlay.active {
+    opacity: 1;
+    z-index: 1;
+    visibility: visible;
+    transition: opacity .5s, visibility 0s;
 }

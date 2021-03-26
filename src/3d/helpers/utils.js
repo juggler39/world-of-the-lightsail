@@ -9,7 +9,7 @@ export default {
 
     createImage (src, className) {
         const $img = document.createElement('img');
-        $img.classList.add(className)
+        $img.className = className;
         $img.src = src;
         return $img;
     },
