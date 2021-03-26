@@ -3,6 +3,7 @@ import Utils from '../helpers/utils'
 import SVG from '../svg/template.svg'
 import Orbit from './orbit'
 import Sun from './sun'
+import Scene from '../scene/scene'
 
 export default class World {
 
@@ -38,6 +39,7 @@ export default class World {
         
         this.setSizes();
 
+        this.scene = new Scene(this);
         this.sun = new Sun(this);
 
         this.orbits = options.orbits.map((options, index) => {

@@ -76,12 +76,12 @@
             <rect class="mm-border rect-in-<%= index %>" />
             <g mask="url(#m<%= index %>)">
                 <% orbit.planets.forEach(planet => { %>
-                    <circle class="mm-lg mm-border circle-out-<%= index %>"/>
+                    <circle class="mm-lg mm-border mm-circle circle-out-<%= index %>"/>
                 <% }) %>
             </g>
             <g clip-path="url(#c<%= index %>)">
                 <% orbit.planets.forEach(planet => { %>
-                    <circle class="mm-lg mm-border circle-in-<%= index %>"/>
+                    <circle class="mm-lg mm-border mm-circle circle-in-<%= index %>"/>
                 <% }) %>
             </g>
         </g>

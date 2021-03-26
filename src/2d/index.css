@@ -81,6 +81,9 @@
 .mm-border--bg {
     stroke: #FAFAFA;
 }
+.mm-circle {
+    fill: #FFFFFF;
+}
 
 
 /* transitions */

@@ -238,13 +238,13 @@ export default class Border {
         })
 
         this.$circleIns.forEach($circle => {
-            $circle.setAttribute('r', pr + border / 2);
-            $circle.setAttribute('stroke-width', border);
+            $circle.setAttribute('r', pr);
+            $circle.setAttribute('stroke-width', border * 2);
         })
 
         this.$circleOuts.forEach($circle => {
-            $circle.setAttribute('r', pr + border / 2);
-            $circle.setAttribute('stroke-width', border);
+            $circle.setAttribute('r', pr);
+            $circle.setAttribute('stroke-width', border * 2);
         })
 
         this.resize();
