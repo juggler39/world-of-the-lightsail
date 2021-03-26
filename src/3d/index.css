@@ -142,6 +142,15 @@ nav .u-btn.active {
     color: #FFFFFF;
     border-color: #9FC5F1
 }
+.ps-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    margin: -6px 0 0 -6px;
+}
+
 .ps-moon {
     z-index: 1;
 }
@@ -152,11 +161,6 @@ nav .u-btn.active {
 .ps-sun:not(.active) p {
     opacity: 0;
 }
-.ps-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 12px;
-    height: 12px;
-    margin: -6px 0 0 -6px;
+.ps-sun .ps-video {
+    margin-top: 4px;
 }
