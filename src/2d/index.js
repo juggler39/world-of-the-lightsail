@@ -76,18 +76,18 @@ const $noteText = $note.querySelector('p');
 const $noteClose = $note.querySelector('a');
 
 function showNote (item) {
-    const rect = item.$node.getBoundingClientRect();
-    let left = window.scrollX + rect.left + rect.width / 2;
-    left = Math.max(left, videoWidth / 2);
-    left = Math.min(left, window.innerWidth - videoWidth / 2);
-    let top = window.scrollY + rect.top + rect.height / 2;
-    top = Math.max(top, videoHeight / 2);
-    top = Math.min(top, window.innerHeight - videoHeight / 2);
-    $note.style.left = left + 'px'
-    $note.style.top = top + 'px'
-    $note.style.display = 'block';
     $noteTitle.textContent = item.label;
     $noteText.textContent = item.note;
+    $note.style.display = 'block';
+    const rect = item.$node.getBoundingClientRect();
+    let left = window.scrollX + rect.left + rect.width / 2;
+    left = Math.max(left, $note.offsetWidth / 2);
+    left = Math.min(left, window.innerWidth - $note.offsetWidth / 2);
+    let top = window.scrollY + rect.top + rect.height / 2;
+    top = Math.max(top, $note.offsetHeight / 2);
+    top = Math.min(top, window.innerHeight - $note.offsetHeight / 2);
+    $note.style.left = left + 'px'
+    $note.style.top = top + 'px'
     active.note = item;
 }
 
