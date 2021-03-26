@@ -24,13 +24,14 @@ export default class World {
         this.$node.style.setProperty('--radius', this.options.sun.r + 'px');
         this.$node.style.setProperty('--moon-scale', this.options.moon.scale);
 
-        this.$svg = Utils.createFromHTML(template(SVG)(this.options))
-        this.$svg.classList.add('mm-svg');
-        this.$node.appendChild(this.$svg);
+        this.$scene = Utils.createNode('mm-scene');
+        this.$node.appendChild(this.$scene);
 
-        this.$items = document.createElement('div');
-        this.$items.classList.add('mm-items');
-        this.$node.appendChild(this.$items);
+        this.$svg = Utils.createFromHTML(template(SVG)(this.options))
+        this.$scene.appendChild(this.$svg);
+
+        this.$items = Utils.createNode('mm-items');
+        this.$scene.appendChild(this.$items);
 
         this.$overlay = document.createElement('div');
         this.$overlay.classList.add('mm-overlay');

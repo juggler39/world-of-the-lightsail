@@ -66,7 +66,7 @@ export default class Scene {
     // ----------------------
 
     render () {
-        this.world.$node.style.transform = `translate(${this.x}px, ${this.y}px) scale(${this.scale})`;
+        this.world.$scene.style.transform = `translate(${this.x}px, ${this.y}px) scale(${this.scale})`;
     }
 
 }

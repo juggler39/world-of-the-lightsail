@@ -12,6 +12,14 @@
     width: 100%;
     height: 100%;
 }
+.mm-scene {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: 0 0;
+}
 .mm-items {
     position: absolute;
     top: 50%;
