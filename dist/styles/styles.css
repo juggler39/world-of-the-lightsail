@@ -95,7 +95,6 @@ iframe {
 .heading {
     padding: 2em 0 0 0;
     text-align: center;
-    z-index: 1;
 }
 .heading h1 {
     font-size: 2em;
