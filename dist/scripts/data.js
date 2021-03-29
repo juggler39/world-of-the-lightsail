@@ -6,7 +6,7 @@ const DATA = {
 
     sun: {
         image3d: 'images/3d/sun.svg',
-        image2d: 'images/2d/sun.png',
+        image2d: 'images/2d/sun.svg',
         video: 'https://player.vimeo.com/video/525213904'
     },
 
