@@ -295,8 +295,6 @@ export default class Border {
             $circle.setAttribute('cy', cy + this.orbit.planets[index].y);
         })
 
-        animate[this.orbit.index](this);
-
     }
 
 
