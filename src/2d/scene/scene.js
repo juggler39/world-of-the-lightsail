@@ -18,8 +18,6 @@ export default class Scene {
         this.zoom = 0;
         this.world = world;
 
-        drag(this);
-
     }
 
 
