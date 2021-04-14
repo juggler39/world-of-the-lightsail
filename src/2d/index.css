@@ -95,14 +95,6 @@
 .mm-line--orange {
     stroke: #FFBC1D;
 }
-.mm-line {
-    stroke-dashoffset: 18;
-    animation: mm-line 1s linear infinite;
-}
-@keyframes mm-line {
-    100% { stroke-dashoffset: 0 }
-}
-
 
 
 /* transitions */
