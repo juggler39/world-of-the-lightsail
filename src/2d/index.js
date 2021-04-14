@@ -143,36 +143,6 @@ world.on('overlay:click', () => {
 
 
 
-
-// ----------------------
-// Zoom
-// ----------------------
-
-const $zoomIn = document.getElementById('zoom-in');
-const $zoomOut = document.getElementById('zoom-out');
-const $zoomVal = document.getElementById('zoom-val');
-
-function getZoomOrigin () {
-    const { left, top, width, height } = $world.getBoundingClientRect();
-    return { x: left + width / 2, y: top + height / 2 }
-}
-
-$zoomIn.addEventListener('click', () => {
-    world.scene.zoomTo(getZoomOrigin(), world.scene.zoom + 0.1);
-})
-
-$zoomOut.addEventListener('click', () => {
-    world.scene.zoomTo(getZoomOrigin(), world.scene.zoom - 0.1);
-})
-
-world.on('zoom', value => {
-    $zoomVal.textContent = 100 + Math.floor(100 * world.scene.zoom) + '%';
-})
-
-$zoomVal.textContent = 100 + Math.floor(100 * world.scene.zoom) + '%';
-
-
-
 // ----------------------
 // Resize
 // ----------------------
