@@ -66,9 +66,14 @@
     position: relative;
     color: #FFFFFF;
     text-align: center;
-    font-size: 32px;
     padding: 0 16px;
     font-weight: 900;
+}
+.mm-planet .mm-label {
+    font-size: 34px;
+}
+.mm-moon .mm-label {
+    font-size: 32px;
 }
 .mm-video {
     position: relative;
