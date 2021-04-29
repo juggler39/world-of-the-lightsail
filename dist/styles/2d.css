@@ -72,6 +72,14 @@
 .mm-planet .mm-label {
     font-size: 34px;
 }
+.mm-planet.mm-orbit-0.mm-index-0 .mm-label,
+.mm-planet.mm-orbit-0.mm-index-1 .mm-label,
+.mm-planet.mm-orbit-0.mm-index-2 .mm-label{
+    font-size: 48px;
+}
+.mm-planet.mm-orbit-2 .mm-label {
+    font-size: 40px;
+}
 .mm-moon .mm-label {
     font-size: 32px;
 }

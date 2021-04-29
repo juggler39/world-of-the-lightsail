@@ -17,6 +17,8 @@ const $world = document.getElementById('world');
 const world = new World($world, config);
 let active = {}
 
+console.log(world)
+
 
 
 // ----------------------

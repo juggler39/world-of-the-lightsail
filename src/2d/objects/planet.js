@@ -19,7 +19,7 @@ export default class Planet {
             return new Moon(options, index, this);
         })
 
-        this.$item = Utils.createNode('mm-item mm-planet');
+        this.$item = Utils.createNode(`mm-item mm-planet mm-orbit-${this.orbit.index} mm-index-${this.index}`);
         this.$image = Utils.createImage(this.image, 'mm-image');
         this.$label = Utils.createLabel(this.label, 'mm-label');
         this.$item.appendChild(this.$image);
