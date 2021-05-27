@@ -84,7 +84,7 @@ const DATA = {
                     image2d: 'images/2d/p2.svg',
                     label: 'Reading',
                     note: 'By presenting children with a wide array of content that is both captivating and at just the right reading level, by harnessing the power of adaptive technology to monitor reading progress and assist children with accessing text, and by creating a fun, interactive reading experience - LightSail helps children grow into fully literate adults who possess a lifelong love of reading.',
-                    video: 'https://player.vimeo.com/video/525213904',
+                    video: 'https://player.vimeo.com/video/524048380',
                     moons: [
                         {
                             image3d: 'images/3d/m3.svg',
@@ -384,7 +384,7 @@ const DATA = {
                 {
                     image3d: 'images/3d/p4.svg',
                     image2d: 'images/2d/p8.svg',
-                    label: 'Mutlimedia',
+                    label: 'Multimedia',
                     video: 'https://player.vimeo.com/video/528299864',
                     note: 'LightSail is a complete language arts platform for the 21st Century, incorporating a vast array of multimedia resources. Explore the world\'s landmarks with full 360 [degree symbol] images. Build a digital, interactively timeline of the history of Rome. Incorporate educational videos and TED Talks into unit studies and so much more.',
                     moons: [
