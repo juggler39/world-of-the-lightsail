@@ -6,9 +6,10 @@ export default {
         return $div.firstElementChild;
     },
 
-    createNode (className) {
+    createNode (className, id) {
         const $node = document.createElement('div');
         $node.className = className;
+        if (id) $node.id = id;
         return $node;
     },
 
