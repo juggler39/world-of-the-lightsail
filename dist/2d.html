@@ -34,7 +34,9 @@
 
 			<!-- video -->
 
-			<div class="video" id="video"></div>
+			<div class="video" id="video">
+				<a class="close" id="close-video">X</a>
+			</div>
 
 
 			<!-- note -->
@@ -51,11 +53,5 @@
 		</section>
 		<script src="scripts/data.js"></script>
 		<script src="scripts/2d.js"></script>
-		<script>
-			setTimeout(() => {
-document.getElementById((new URL(document.location)).searchParams.get("data")).click();
-}, 50);
-		</script>
-
 	</body>
 </html>

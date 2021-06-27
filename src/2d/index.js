@@ -2,12 +2,10 @@
 // Imports
 // ----------------------
 
-import './index.css'
-import config from './config'
-import World from './objects/world'
-import Player from '@vimeo/player'
-
-
+import './index.css';
+import config from './config';
+import World from './objects/world';
+import Player from '@vimeo/player';
 
 // ----------------------
 // Globals
@@ -15,11 +13,9 @@ import Player from '@vimeo/player'
 
 const $world = document.getElementById('world');
 const world = new World($world, config);
-let active = {}
+let active = {};
 
-console.log(world)
-
-
+console.log(world);
 
 // ----------------------
 // Video
@@ -30,8 +26,9 @@ const videoHeight = 360;
 
 const $video = document.getElementById('video');
 const $intro = document.getElementById('intro');
+const close = document.getElementById('close-video');
 
-function showVideo (item) {
+function showVideo(item) {
     const rect = item.$video.getBoundingClientRect();
     let left = window.scrollX + rect.left + rect.width / 2;
     left = Math.max(left, videoWidth / 2);
@@ -39,34 +36,36 @@ function showVideo (item) {
     let top = window.scrollY + rect.top + rect.height / 2;
     top = Math.max(top, videoHeight / 2);
     top = Math.min(top, window.innerHeight - videoHeight / 2);
-    $video.style.left = left + 'px'
-    $video.style.top = top + 'px'
+    $video.style.left = left + 'px';
+    $video.style.top = top + 'px';
     $video.style.display = 'block';
     world.$overlay.classList.add('active');
     active.player = new Player('video', {
         url: item.video,
         width: videoWidth,
         height: videoHeight,
-        muted: window.innerWidth <= 728
+        muted: window.innerWidth <= 728,
     });
     active.player.play();
-    active.player.on('timeupdate', data => {
-        if (data.percent  > 0.998) world.emit('overlay:click');
+    active.player.on('timeupdate', (data) => {
+        if (data.percent > 0.998) world.emit('overlay:click');
     });
 }
 
-world.on('video', item => {
+world.on('video', (item) => {
     showVideo(item);
-})
+});
 
 $intro.addEventListener('click', () => {
     showVideo({
         $video: $world,
-        video: DATA.head.video
+        video: DATA.head.video,
     });
-})
+});
 
-
+close.addEventListener('click', () => {
+    world.emit('overlay:click');
+});
 
 // ----------------------
 // Note
@@ -77,7 +76,7 @@ const $noteTitle = $note.querySelector('h1');
 const $noteText = $note.querySelector('p');
 const $noteClose = $note.querySelector('a');
 
-function showNote (item) {
+function showNote(item) {
     $noteTitle.textContent = item.label;
     $noteText.textContent = item.note;
     $note.style.display = 'block';
@@ -88,38 +87,34 @@ function showNote (item) {
     let top = window.scrollY + rect.top + rect.height / 2;
     top = Math.max(top, $note.offsetHeight / 2);
     top = Math.min(top, window.innerHeight - $note.offsetHeight / 2);
-    $note.style.left = left + 'px'
-    $note.style.top = top + 'px'
+    $note.style.left = left + 'px';
+    $note.style.top = top + 'px';
     active.note = item;
 }
 
-world.on('planet:click', planet => {
+world.on('planet:click', (planet) => {
     if (planet !== active.planet) return;
     showNote(planet);
-})
+});
 
-world.on('moon:click', moon => {
+world.on('moon:click', (moon) => {
     showNote(moon);
-})
+});
 
 $noteClose.addEventListener('click', () => {
     world.emit('overlay:click');
-})
-
-
+});
 
 // ----------------------
 // Planet click
 // ----------------------
 
-world.on('planet:click', planet => {
+world.on('planet:click', (planet) => {
     if (active.planet) active.planet.$node.classList.remove('active');
     world.$overlay.classList.add('active');
     active.planet = planet;
     active.planet.$node.classList.add('active');
-})
-
-
+});
 
 // ----------------------
 // Overlay click
@@ -130,20 +125,16 @@ world.on('overlay:click', () => {
         $video.style.display = 'none';
         active.player.destroy();
         active.player = null;
-    }
-    else if (active.note) {
+    } else if (active.note) {
         $note.style.display = 'none';
         active.note = null;
-    }
-    else if (active.planet) {
+    } else if (active.planet) {
         active.planet.$node.classList.remove('active');
         active.planet = null;
     }
-    const show = Object.values(active).some(value => value);
+    const show = Object.values(active).some((value) => value);
     if (!show) world.$overlay.classList.remove('active');
-})
-
-
+});
 
 // ----------------------
 // Resize
@@ -151,6 +142,11 @@ world.on('overlay:click', () => {
 
 window.addEventListener('resize', () => {
     world.resize();
-})
+});
 
-
+setTimeout(() => {
+    const elem = document.getElementById(
+        new URL(document.location).searchParams.get('data')
+    );
+    if (elem) elem.click();
+}, 50);

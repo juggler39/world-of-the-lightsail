@@ -1,84 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-    <title>Title</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="styles/3d.css">
-</head>
-<body class="d3">
-    <section>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+		<title>Title</title>
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="styles/styles.css">
+		<link rel="stylesheet" href="styles/3d.css">
+	</head>
+	<body class="d3">
+		<section>
 
 
-            <!-- stars -->
+			<!-- stars -->
 
-            <canvas class="stars" id="stars"></canvas>
-
-
-            <!-- heading -->
-
-            <div class="heading">
-                <h1>Welcome to the World of LightSail</h1>
-                <p>
-                    <span>Explore the LightSail feature map.</span>
-                    <span>Please Watch Our Short Introduction Video</span>
-                    <a class="intro u-pulse" id="intro"><img src="images/video.svg"></a>
-                    <a class="switch u-btn" href="2d.html">Switch to 2D</a>
-                </p>
-            </div>
+			<canvas class="stars" id="stars"></canvas>
 
 
-            <!-- world -->
+			<!-- heading -->
 
-            <div class="world" id="world"></div>
-
-
-            <!-- zoom -->
-
-            <div class="zoom">
-                <a id="zoom-in"></a>
-                <p id="zoom-val">100%</p>
-                <a id="zoom-out"></a>
-            </div>
-
-
-            <!-- controls -->
-
-            <div class="controls">
-                <a class="u-btn" id="slower">Slower</a>
-                <a class="u-btn" id="faster">Faster</a>
-                <a class="u-btn" id="stop">Stop</a>
-                <a class="u-btn u-hidden" id="play">Play</a>
-                <a class="u-btn" id="d2">2D</a>
-                <a class="u-btn u-hidden" id="d3">3D</a>
-            </div>
+			<div class="heading">
+				<h1>Welcome to the World of LightSail</h1>
+				<p>
+					<span>Explore the LightSail feature map.</span>
+					<span>Please Watch Our Short Introduction Video</span>
+					<a class="intro u-pulse" id="intro"><img src="images/video.svg"></a>
+					<a class="switch u-btn" href="2d.html">Switch to 2D</a>
+				</p>
+			</div>
 
 
-            <!-- nav -->
+			<!-- world -->
 
-            <nav id="nav"></nav>
-
-
-            <!-- video -->
-
-            <div class="video" id="video"></div>
+			<div class="world" id="world"></div>
 
 
-            <!-- note -->
+			<!-- zoom -->
 
-            <div class="note" id="note">
-                <div class="note-title">
-                    <h1></h1>
-                    <a>x</a>
-                </div>
-                <p class="note-text"></p>
-            </div>
+			<div class="zoom">
+				<a id="zoom-in"></a>
+				<p id="zoom-val">100%</p>
+				<a id="zoom-out"></a>
+			</div>
 
-    </section>
-    <script src="scripts/data.js"></script>
-    <script src="scripts/3d.js"></script>
-</body>
+
+			<!-- controls -->
+
+			<div class="controls">
+				<a class="u-btn" id="slower">Slower</a>
+				<a class="u-btn" id="faster">Faster</a>
+				<a class="u-btn" id="stop">Stop</a>
+				<a class="u-btn u-hidden" id="play">Play</a>
+				<a class="u-btn" id="d2">2D</a>
+				<a class="u-btn u-hidden" id="d3">3D</a>
+			</div>
+
+
+			<!-- nav -->
+
+			<nav id="nav"></nav>
+
+
+			<!-- video -->
+
+			<div class="video" id="video">
+				<a class="close" id="close-video">X</a>
+			</div>
+
+
+			<!-- note -->
+
+			<div class="note" id="note">
+				<div class="note-title">
+					<h1></h1>
+					<a>x</a>
+				</div>
+				<p class="note-text"></p>
+			</div>
+
+		</section>
+		<script src="scripts/data.js"></script>
+		<script src="scripts/3d.js"></script>
+	</body>
 </html>
