@@ -234,8 +234,7 @@ document.addEventListener('click', outsideVideo, true);
 
 close.addEventListener('click', () => {
     $video.style.display = 'none';
-    active.player.destroy();
-    active.player = null;
+    player.destroy();
 });
 
 // ----------------------
